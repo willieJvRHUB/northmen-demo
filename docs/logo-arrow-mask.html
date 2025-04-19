@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arrow cut‑out (final)</title>
+<style>
+  html,body{height:100%;margin:0;background:#111;display:flex;justify-content:center;align-items:center;}
+</style>
+</head>
+<body>
+
+<svg width="140" height="166" viewBox="0 0 140 166">
+  <defs>
+    <!-- moving rainbow fill -->
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#ff9300">
+        <animate attributeName="stop-color"
+                 values="#ff9300;#ff00e0;#00c8ff;#ff9300"
+                 dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00c8ff">
+        <animate attributeName="stop-color"
+                 values="#00c8ff;#ff9300;#ff00e0;#00c8ff"
+                 dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- PNG‑based alpha mask (white = show, transparent = hide) -->
+    <mask id="logoMask" maskUnits="userSpaceOnUse" mask-type="alpha"
+          x="0" y="0" width="140" height="166">
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACmCAIAAACHlfA5AAAWQUlEQVR4Ae2d918U17vHv/8EN/m2e+/XaIqiYEeFGCuaGGs0kahEQcEoAsbeC7EmFkBqULAgKgqCC9KlSVdREBBEOgtsL9Nn9t5xN5PZ2WUVZXfO4PLihzNnZs4883nPM3vKc878TWf/A16BvwFvod1AnR2SAB4COyQ7JAEoIAAT7Z5khyQABQRgot2T7JAEoIAATLR7kh2SABQQgIl2T7JDEoACAjDR7kl2SAJQQAAm2j3JDkkACgjARLsnT5IEkJAAEa6PyQ5JAAoIwES7J0+SBJCQABGun4kOeQLRBQgwETbA4nmMgQRGCAiXZNtMCRIAEFGCC3ZNsMCRIAEFGCCnZvTELSBBAQgKmd28wZEgAQkYiJfdvMGhIAEJGIiV928waEgAQkYiJn3bzBoSAACZYpttvK5wSbrKjicuFIfXaUeY+JLnwV8A7ux74rVfqo2uYT1YHo5TPhwC/5g53x9+5+wsH4A7PILHtltXm9BhsdD7vqE6wS+WbPB8EhnPfFPSB1ZZFw8xo0nlcL7vjJ5sLagKEPaG6uvsFYPHjS2MOG+lA4wzifRwJVfPBbOPW9cC7/kHPpz9O/86+48CzwSn30S++Oe9qcvG3c6kr+W60lHf7+uGViwbNYbCot4YtDEl242xQl03v8demMF81BjTWt2b6qkI+6zZrH9b4F9L+zkY31/TH65rN6hUfQrFG9aGH6fE2TdkUEnbG508QhU0tKrOQXsjbXqwRGYJXFt7VOYucM3bWIn3NCG5/LmcygkNPGbXzj8TPYYrMxZmq9umOylTdTGxnuKG9v0w7aDq+fGZb+Y9yO+AnvjUq4MP2Y3jtROz5vfiex1z3cqf5jTr7nFXxpoOOcrXhimbItofK2GGku47xv5mLra0QxVWPXfxgFL+9EtmPKD1Whnl9C59g3PZ2RqWAYJt2LCTuO3SB6jyi9uI9dJ7N3VW+uhrpgUex/4ADXCBI6t0DEAAAAASUVORK5CYII="
+             x="0" y="0" width="140" height="166" />
+    </mask>
+  </defs>
+
+  <!-- rectangle punched by the mask -->
+  <rect width="140" height="166" fill="url(#g)" mask="url(#logoMask)" />
+</svg>
+
+</body>
+</html>
