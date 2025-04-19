@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Button Base</title>
+  <title>Laser Button</title>
   <style>
     html, body {
       height: 100%;
@@ -14,47 +14,43 @@
     }
 
     .glow-button {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 2px solid #555;
-  background: linear-gradient(270deg, #00c8ff, #ffe600, #00c8ff);
-  background-size: 600% 600%;
-  animation: scan 6s ease infinite;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 2px solid #555;
+      background: linear-gradient(270deg, #00c8ff, #ffe600, #00c8ff);
+      background-size: 600% 600%;
+      animation: scan 6s ease infinite;
 
-  /* MASK MAGIC */
-  -webkit-mask-image: url("arrow_mask_alpha.png");
-  -webkit-mask-size: 50% auto;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-          mask-image: url("arrow_mask_alpha.png");
-          mask-size: 50% auto;
-          mask-repeat: no-repeat;
-          mask-position: center;
+      /* MASK: show light only through the arrow */
+      -webkit-mask-image: url("arrow_mask_alpha.png");
+      -webkit-mask-size: 50% auto;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+              mask-image: url("arrow_mask_alpha.png");
+              mask-size: 50% auto;
+              mask-repeat: no-repeat;
+              mask-position: center;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: box-shadow 0.3s ease;
-}
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
 
     .glow-button:hover {
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
     }
+
+    @keyframes scan {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
-  @keyframes scan {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 </head>
 <body>
 
-  <div class="glow-button">
-  <img src="arrow_mask_alpha.png" alt="arrow" style="width: 50%; height: auto;" />
-</div>
+  <div class="glow-button"></div>
 
 </body>
 </html>
-
