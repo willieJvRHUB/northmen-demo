@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Laser Edge Button</title>
+  <title>Laser Weld Button</title>
   <style>
     html, body {
       height: 100%;
@@ -52,9 +52,31 @@
       left: 0;
       width: 100%;
       height: 2%;
-      background: white;
+      background: red;
       animation: laserline 20s ease-in-out infinite;
       pointer-events: none;
+      z-index: 2;
+    }
+
+    .spark {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: yellow;
+      border-radius: 50%;
+      box-shadow: 0 0 6px orange;
+      opacity: 0;
+      animation: flicker 1s infinite;
+    }
+
+    .spark-left {
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .spark-right {
+      right: 20%;
+      animation-delay: 0.5s;
     }
 
     .edge-glow {
@@ -62,12 +84,63 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+      box-shadow: 0 0 30px rgba(255,255,255,0.8);
       opacity: 0;
       animation: edgeGlow 20s ease-in-out infinite;
+
+      -webkit-mask-image: url("arrow_mask_alpha.png");
+      -webkit-mask-size: 50% auto;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: 45% center;
+              mask-image: url("arrow_mask_alpha.png");
+              mask-size: 50% auto;
+              mask-repeat: no-repeat;
+              mask-position: 45% center;
+
       pointer-events: none;
+      z-index: 1;
     }
 
     @keyframes scan {
-      0%
+      0%   { background-position: 50% 0%; }
+      50%  { background-position: 50% 100%; }
+      100% { background-position: 50% 0%; }
+    }
 
+    @keyframes laserline {
+      0%   { top: -50%; }
+      50%  { top: 100%; }
+      100% { top: -50%; }
+    }
+
+    @keyframes edgeGlow {
+      0%, 100% { opacity: 0; }
+      45%, 55% { opacity: 1; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      40% { opacity: 1; transform: scale(1.2); }
+      60% { opacity: 1; transform: scale(0.8); }
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0px); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+      50%  { transform: translateY(-6px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
+      100% { transform: translateY(0px); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-wrapper">
+    <div class="glow-button">
+      <div class="laser-line"></div>
+      <div class="edge-glow"></div>
+      <div class="spark spark-left"></div>
+      <div class="spark spark-right"></div>
+    </div>
+  </div>
+
+</body>
+</html>
