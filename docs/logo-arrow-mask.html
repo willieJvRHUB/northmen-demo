@@ -22,6 +22,7 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: float 2s ease-in-out infinite;
     }
 
     .glow-button {
@@ -42,6 +43,12 @@
 
       border-radius: 50%;
     }
+
+    @keyframes float {
+  0%   { transform: translateY(0px); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+  50%  { transform: translateY(-6px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
+  100% { transform: translateY(0px); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+}
 
     @keyframes scan {
       0%   { background-position: 0% 50%; }
