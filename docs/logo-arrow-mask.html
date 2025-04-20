@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Electric Arrow Button</title>
+  <title>Electric Plasma Arrow</title>
   <style>
     html, body {
       height: 100%;
@@ -21,7 +21,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
       animation: float 3s ease-in-out infinite;
     }
 
@@ -31,17 +31,8 @@
       position: relative;
       border-radius: 50%;
       overflow: hidden;
-
-      background: repeating-linear-gradient(
-        0deg,
-        #00ffff 0%,
-        #00ffff 2%,
-        #001f33 4%,
-        #001f33 6%
-      );
-      background-size: 100% 100%;
-      animation: electric 1.2s linear infinite;
-
+      background: #000;
+      
       -webkit-mask-image: url("arrow_mask_alpha.png");
       -webkit-mask-size: 50% auto;
       -webkit-mask-repeat: no-repeat;
@@ -52,9 +43,39 @@
               mask-position: 45% center;
     }
 
-    @keyframes electric {
-      0%   { background-position: 0% 0%; }
-      100% { background-position: 0% 100%; }
+    .plasma-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 30%, #00f7ff 0%, transparent 40%),
+                  radial-gradient(circle at 70% 60%, #00f7ff 0%, transparent 30%),
+                  radial-gradient(circle at 50% 20%, #00f7ff 0%, transparent 25%);
+      mix-blend-mode: screen;
+      filter: blur(3px) brightness(1.5);
+      opacity: 0.6;
+      animation: plasmaPulse 1.2s infinite ease-in-out alternate;
+    }
+
+    .plasma-layer::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 40% 80%, #00ffff 0%, transparent 40%),
+                  radial-gradient(circle at 60% 40%, #00ffff 0%, transparent 30%);
+      mix-blend-mode: screen;
+      filter: blur(4px) brightness(2);
+      animation: plasmaPulse2 1.5s infinite ease-in-out alternate;
+    }
+
+    @keyframes plasmaPulse {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+      100% { transform: scale(1.1) translate(-2px, 2px); opacity: 0.9; }
+    }
+
+    @keyframes plasmaPulse2 {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+      100% { transform: scale(1.2) translate(1px, -2px); opacity: 0.8; }
     }
 
     @keyframes float {
@@ -66,7 +87,9 @@
 <body>
 
   <div class="button-wrapper">
-    <div class="glow-button"></div>
+    <div class="glow-button">
+      <div class="plasma-layer"></div>
+    </div>
   </div>
 
 </body>
