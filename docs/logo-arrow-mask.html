@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Laser Glow Button</title>
+  <title>Laser Edge Button</title>
   <style>
     html, body {
       height: 100%;
@@ -32,7 +32,6 @@
       border-radius: 50%;
       overflow: hidden;
 
-      /* laser background */
       background: linear-gradient(180deg, #00c8ff, #ffe600, #00c8ff);
       background-size: 100% 300%;
       animation: scan 20s ease-in-out infinite;
@@ -58,32 +57,17 @@
       pointer-events: none;
     }
 
+    .edge-glow {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: edgeGlow 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+
     @keyframes scan {
-      0%   { background-position: 50% 0%; }
-      50%  { background-position: 50% 100%; }
-      100% { background-position: 50% 0%; }
-    }
+      0%
 
-    @keyframes laserline {
-      0%   { top: -50%; }
-      50%  { top: 100%; }
-      100% { top: -50%; }
-    }
-
-    @keyframes float {
-      0%   { transform: translateY(0px); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-      50%  { transform: translateY(-6px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
-      100% { transform: translateY(0px); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="button-wrapper">
-    <div class="glow-button">
-      <div class="laser-line"></div>
-    </div>
-  </div>
-
-</body>
-</html>
