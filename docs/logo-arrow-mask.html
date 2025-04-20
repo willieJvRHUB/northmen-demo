@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pure Plasma Arrow</title>
+  <title>Mini Matrix Arrow</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      height: 100%;
       background: #fff;
       display: flex;
       justify-content: center;
@@ -16,55 +16,85 @@
     .button-wrapper {
       width: 80px;
       height: 80px;
-      border-radius: 50%;
       background-color: #111;
+      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
       animation: float 3s ease-in-out infinite;
+      overflow: hidden;
     }
 
     .glow-button {
       width: 80px;
       height: 80px;
-      position: relative;
       border-radius: 50%;
+      position: relative;
       overflow: hidden;
-      background: transparent;
 
       -webkit-mask-image: url("arrow_mask_alpha.png");
-      -webkit-mask-size: 50% auto;
+      -webkit-mask-size: 60% auto;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: 45% center;
               mask-image: url("arrow_mask_alpha.png");
-              mask-size: 50% auto;
+              mask-size: 60% auto;
               mask-repeat: no-repeat;
               mask-position: 45% center;
     }
 
-    .plasma {
-      position: absolute;
+    .matrix {
       width: 100%;
       height: 100%;
-      background:
-        radial-gradient(circle at 20% 30%, #00ffff 0%, transparent 35%),
-        radial-gradient(circle at 80% 50%, #00f7ff 0%, transparent 30%),
-        radial-gradient(circle at 50% 70%, #00eaff 0%, transparent 40%);
-      mix-blend-mode: screen;
-      filter: blur(4px) brightness(2);
-      animation: plasmaDance 1.5s infinite ease-in-out alternate;
+      background: #000;
+      font-family: monospace;
+      font-size: 8px;
+      line-height: 10px;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: flicker 1s infinite alternate;
     }
 
-    @keyframes plasmaDance {
-      0%   { transform: scale(1) translate(0, 0); opacity: 0.6; }
-      50%  { transform: scale(1.05) translate(-1px, 2px); opacity: 0.8; }
-      100% { transform: scale(1.1) translate(1px, -1px); opacity: 1; }
+    .matrix-column {
+      flex: 1;
+      animation: rain 1.5s linear infinite;
+      white-space: pre;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    .matrix-column:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .matrix-column:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .matrix-column:nth-child(4) {
+      animation-delay: 0.1s;
+    }
+
+    .matrix-column:nth-child(5) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes rain {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-4px); }
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.8; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
@@ -72,7 +102,13 @@
 
   <div class="button-wrapper">
     <div class="glow-button">
-      <div class="plasma"></div>
+      <div class="matrix">
+        <div class="matrix-column">A\nB\nC\n1\n2\n3</div>
+        <div class="matrix-column">K\nZ\n5\n7\nL\nX</div>
+        <div class="matrix-column">@\n#\n$\n%\n&\n*</div>
+        <div class="matrix-column">M\nN\n6\nW\nE\nY</div>
+        <div class="matrix-column">Q\nR\nT\nU\n8\n9</div>
+      </div>
     </div>
   </div>
 
