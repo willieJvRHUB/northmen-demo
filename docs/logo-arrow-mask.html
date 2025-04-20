@@ -55,17 +55,18 @@
       white-space: pre;
       display: flex;
       justify-content: center;
-      align-items: end;
-      padding-bottom: 4px;
+      align-items: start;
+      padding-top: 4px;
     }
 
     .matrix-content {
+      height: 200%;
       animation: scrollText 10s linear infinite;
     }
 
     @keyframes scrollText {
       0%   { transform: translateY(-100%); }
-      100% { transform: translateY(0); }
+      100% { transform: translateY(100%); }
     }
 
     @keyframes float {
@@ -130,5 +131,8 @@ p
       </div>
     </div>
   </div>
+</body>
+</html>
+
 </body>
 </html>
