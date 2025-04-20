@@ -49,7 +49,7 @@
       background: #000;
       font-family: monospace;
       font-size: 8px;
-      line-height: 14px;
+      line-height: 16px;
       color: white;
       position: relative;
       overflow: hidden;
@@ -57,9 +57,9 @@
 
     .matrix-stream {
       position: absolute;
-      top: -100%;
+      top: -120%;
       white-space: pre;
-      animation: fall 2.5s linear infinite, drift 1.5s ease-in-out infinite alternate;
+      animation: fall 3s linear infinite, drift 1.5s ease-in-out infinite alternate;
       padding: 0 2px;
     }
 
@@ -74,7 +74,7 @@
     .matrix-stream:nth-child(9) { left: 85%; animation-delay: 0.05s, 0.15s; }
 
     @keyframes fall {
-      0%   { top: -100%; }
+      0%   { top: -120%; }
       100% { top: 100%; }
     }
 
