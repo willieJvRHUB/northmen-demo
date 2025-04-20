@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Laser Weld Button</title>
+  <title>Laser Cutting Effect</title>
   <style>
     html, body {
       height: 100%;
@@ -31,11 +31,9 @@
       position: relative;
       border-radius: 50%;
       overflow: hidden;
-
       background: linear-gradient(180deg, #00c8ff, #ffe600, #00c8ff);
       background-size: 100% 300%;
       animation: scan 20s ease-in-out infinite;
-
       -webkit-mask-image: url("arrow_mask_alpha.png");
       -webkit-mask-size: 50% auto;
       -webkit-mask-repeat: no-repeat;
@@ -60,11 +58,11 @@
 
     .spark {
       position: absolute;
-      width: 4px;
-      height: 4px;
+      width: 2px;
+      height: 2px;
       background: yellow;
       border-radius: 50%;
-      box-shadow: 0 0 6px orange;
+      box-shadow: 0 0 4px orange;
       opacity: 0;
       animation: flicker 1s infinite;
     }
@@ -87,7 +85,6 @@
       box-shadow: 0 0 30px rgba(255,255,255,0.8);
       opacity: 0;
       animation: edgeGlow 20s ease-in-out infinite;
-
       -webkit-mask-image: url("arrow_mask_alpha.png");
       -webkit-mask-size: 50% auto;
       -webkit-mask-repeat: no-repeat;
@@ -96,7 +93,6 @@
               mask-size: 50% auto;
               mask-repeat: no-repeat;
               mask-position: 45% center;
-
       pointer-events: none;
       z-index: 1;
     }
