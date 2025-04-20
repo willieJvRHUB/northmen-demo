@@ -42,15 +42,22 @@
     }
 
   </style>
-   @keyframes scan {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+   .button-wrapper {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 </head>
 <body>
 
-  <div class="glow-button"></div>
+  <div class="button-wrapper">
+    <div class="glow-button"></div>
+  </div>
 
 </body>
 </html>
