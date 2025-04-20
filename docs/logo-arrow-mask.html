@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Laser Button</title>
+  <title>Laser Glow Button</title>
   <style>
     html, body {
       height: 100%;
@@ -13,16 +13,24 @@
       align-items: center;
     }
 
-    .glow-button {
+    .button-wrapper {
       width: 160px;
       height: 160px;
       border-radius: 50%;
-      border: 2px solid #555;
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .glow-button {
+      width: 160px;
+      height: 160px;
       background: linear-gradient(270deg, #00c8ff, #ffe600, #00c8ff);
       background-size: 600% 600%;
       animation: scan 6s ease infinite;
 
-      /* MASK: show light only through the arrow */
       -webkit-mask-image: url("arrow_mask_alpha.png");
       -webkit-mask-size: 50% auto;
       -webkit-mask-repeat: no-repeat;
@@ -32,26 +40,15 @@
               mask-repeat: no-repeat;
               mask-position: center;
 
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
+      border-radius: 50%;
     }
 
-    .glow-button:hover {
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    @keyframes scan {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-
   </style>
-   .button-wrapper {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background-color: #1a1a1a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
 </head>
 <body>
 
