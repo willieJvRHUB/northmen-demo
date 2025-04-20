@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Electric Plasma Arrow</title>
+  <title>Pure Plasma Arrow</title>
   <style>
     html, body {
       height: 100%;
@@ -31,8 +31,8 @@
       position: relative;
       border-radius: 50%;
       overflow: hidden;
-      background: #000;
-      
+      background: transparent;
+
       -webkit-mask-image: url("arrow_mask_alpha.png");
       -webkit-mask-size: 50% auto;
       -webkit-mask-repeat: no-repeat;
@@ -43,39 +43,23 @@
               mask-position: 45% center;
     }
 
-    .plasma-layer {
+    .plasma {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 30% 30%, #00f7ff 0%, transparent 40%),
-                  radial-gradient(circle at 70% 60%, #00f7ff 0%, transparent 30%),
-                  radial-gradient(circle at 50% 20%, #00f7ff 0%, transparent 25%);
-      mix-blend-mode: screen;
-      filter: blur(3px) brightness(1.5);
-      opacity: 0.6;
-      animation: plasmaPulse 1.2s infinite ease-in-out alternate;
-    }
-
-    .plasma-layer::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 40% 80%, #00ffff 0%, transparent 40%),
-                  radial-gradient(circle at 60% 40%, #00ffff 0%, transparent 30%);
+      background:
+        radial-gradient(circle at 20% 30%, #00ffff 0%, transparent 35%),
+        radial-gradient(circle at 80% 50%, #00f7ff 0%, transparent 30%),
+        radial-gradient(circle at 50% 70%, #00eaff 0%, transparent 40%);
       mix-blend-mode: screen;
       filter: blur(4px) brightness(2);
-      animation: plasmaPulse2 1.5s infinite ease-in-out alternate;
+      animation: plasmaDance 1.5s infinite ease-in-out alternate;
     }
 
-    @keyframes plasmaPulse {
-      0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
-      100% { transform: scale(1.1) translate(-2px, 2px); opacity: 0.9; }
-    }
-
-    @keyframes plasmaPulse2 {
-      0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
-      100% { transform: scale(1.2) translate(1px, -2px); opacity: 0.8; }
+    @keyframes plasmaDance {
+      0%   { transform: scale(1) translate(0, 0); opacity: 0.6; }
+      50%  { transform: scale(1.05) translate(-1px, 2px); opacity: 0.8; }
+      100% { transform: scale(1.1) translate(1px, -1px); opacity: 1; }
     }
 
     @keyframes float {
@@ -88,7 +72,7 @@
 
   <div class="button-wrapper">
     <div class="glow-button">
-      <div class="plasma-layer"></div>
+      <div class="plasma"></div>
     </div>
   </div>
 
