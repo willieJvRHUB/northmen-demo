@@ -25,12 +25,13 @@
       animation: float 3s ease-in-out infinite;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.1s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .button-wrapper:active {
-      transform: scale(0.95);
+      transform: translateY(2px) scale(0.96);
       box-shadow: inset 0 0 10px #333;
+      animation: none;
     }
 
     .glow-button {
@@ -72,24 +73,6 @@
       padding: 2px 0;
     }
 
-    .hidden-buttons {
-      display: none;
-      margin-top: 20px;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hidden-buttons.active {
-      display: flex;
-    }
-
-    button.extra-button {
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-
     @keyframes scrollVerse {
       0% { transform: translateY(-50%); }
       100% { transform: translateY(0%); }
@@ -100,14 +83,9 @@
       50%      { transform: translateY(-4px); }
     }
   </style>
-  <script>
-    function revealButtons() {
-      document.getElementById('extra-buttons').classList.add('active');
-    }
-  </script>
 </head>
 <body>
-  <div class="button-wrapper" onclick="revealButtons()">
+  <div id="main-button" class="button-wrapper">
     <div class="glow-button">
       <div class="matrix">
         <div class="matrix-content">
@@ -130,12 +108,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div id="extra-buttons" class="hidden-buttons">
-    <button class="extra-button">Option 1</button>
-    <button class="extra-button">Option 2</button>
-    <button class="extra-button">Option 3</button>
   </div>
 </body>
 </html>
